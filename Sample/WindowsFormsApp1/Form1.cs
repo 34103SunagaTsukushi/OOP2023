@@ -26,13 +26,16 @@ namespace WindowsFormsApp1 {
 
         }
         private void btPow_Click(object sender, EventArgs e) {
-            int num3 = decimal.ToInt32(nudX.Value);
-            int num4 = decimal.ToInt32(nudY.Value);
-            for (int i = 0; i < num4-1; i++)
-            {
-                num3 *= num3;
-            }
-            tbResult.Text = num3.ToString();
+            tbResult.Text = (Math.Pow((double)nudX.Value, (double)nudY.Value)).ToString();
+            
+
+            //int num3 = decimal.ToInt32(nudX.Value);
+            //int num4 = decimal.ToInt32(nudY.Value);
+            //for (int i = 0; i < num4-1; i++)
+            //{
+            //    num3 *= num3;
+            //}
+            //tbResult.Text = num3.ToString();
             {
 
             }
