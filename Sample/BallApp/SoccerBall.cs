@@ -15,11 +15,21 @@ namespace BallApp {
 
         private double moveX = 7.0; //移動量(X方向)
         private double moveY = 7.0; //移動量(Y方向)
+        Random random = new Random();
         //コンストラクタ
-        public SoccerBall() {
+        public SoccerBall(double xp, double yp) {
             Image = Image.FromFile(@"pic\soccer_ball.png");
-            PosX = 0.0;
-            PosY = 0.0;
+            
+
+            PosX = xp -25;
+            PosY = yp -25;
+            int rndX = random.Next(-15, 15);
+            int rndY = random.Next(-15, 15);
+
+
+            moveX =(rndX != 0 ? rndX :1); //乱数で移動量を設定
+            moveY =(rndY != 0 ? rndY :1);
+
 
         }
         //プロパティ
