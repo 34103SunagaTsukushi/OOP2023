@@ -56,9 +56,9 @@ namespace BallApp {
             pb.SizeMode = PictureBoxSizeMode.StretchImage; //画像の表示モード
             pb.Parent = this;
 
-            count++;
-            this.Text = "ボールの数：" + count;
 
+            this.Text = "ボールの数：" + ++count;
+            //this.Text = "BallGame" + SoccerBall.Count;
             balls.Add(soccerBall);
             pbs.Add(pb);
          

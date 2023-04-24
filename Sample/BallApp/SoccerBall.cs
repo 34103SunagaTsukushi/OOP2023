@@ -16,6 +16,9 @@ namespace BallApp {
         private double moveX = 7.0; //移動量(X方向)
         private double moveY = 7.0; //移動量(Y方向)
         Random random = new Random();
+
+        private static int count;
+
         //コンストラクタ
         public SoccerBall(double xp, double yp) {
             Image = Image.FromFile(@"pic\soccer_ball.png");
@@ -36,6 +39,7 @@ namespace BallApp {
         public double PosX { get => posX; set => posX = value; }
         public double PosY { get => posY; set => posY = value; }
         public Image Image { get => image; set => image = value; }
+        public int Count { get => count; set => count = value; }
         //メソッド
         public void Move() {
 
