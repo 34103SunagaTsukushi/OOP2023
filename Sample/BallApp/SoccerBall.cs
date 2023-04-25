@@ -15,8 +15,6 @@ namespace BallApp {
         //コンストラクタ
         public SoccerBall(double xp,double yp ):base( xp,  yp,@"pic\soccer_ball.png") {
             
-            PosX = xp -25;
-            PosY = yp -25;
             int rndX = random.Next(-15, 15);
             int rndY = random.Next(-15, 15);
 
