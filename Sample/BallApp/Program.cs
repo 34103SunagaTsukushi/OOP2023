@@ -19,8 +19,7 @@ namespace BallApp {
 
         //private List<TennisBall> balls1 = new List<TennisBall>(); //ボールインスタンス格納用
         //private List<PictureBox> pbs1 = new List<PictureBox>(); //表示用
-
-        int count = 0; //ボールの数をカウント
+        int count= 0;
 
         static void Main(string[] args) {
             Application.Run(new Program());
@@ -57,7 +56,7 @@ namespace BallApp {
             pb = new PictureBox();
             if (e.Button == MouseButtons.Right)//右クリック
             {
-                ballObj = new TennisBall(e.X-25, e.Y-25);
+                ballObj = new TennisBall(e.X-12, e.Y-12);
                 pb.Size = new Size(35, 35); //画像の表示サイズ
             }
             else
@@ -66,8 +65,6 @@ namespace BallApp {
                 ballObj = new SoccerBall(e.X-25, e.Y-25);
                 pb.Size = new Size(50, 50); //画像の表示サイズ
             }
-     
-            
 
             pb.Image = ballObj.Image;
             pb.Location = new Point((int)ballObj.PosX, (int)ballObj.PosY);
@@ -78,8 +75,7 @@ namespace BallApp {
             pbs.Add(pb);
 
 
-            //this.Text = "ボールの数：" + ++count;
-            this.Text = "BallGame:" + balls.Count;
+            this.Text = "サッカーボールの数:" + SoccerBall.Scount + "テニスボールの数：" + TennisBall.Tcount;//ボールの数の表示
 
             moveTimer.Start(); //タイマースタート
         }
@@ -87,20 +83,11 @@ namespace BallApp {
 
         //タイマータイムアウト時のイベントハンドラ
         private void MoveTimer_Tick(object sender, EventArgs e) {
-            
-            
             for (int i = 0; i < balls.Count; i++)
             {
                 balls[i].Move(); //移動
-                pbs[i].Location =new Point((int)balls[i].PosX, (int)balls[i].PosY); //画像の位置
-            }/*
-            for (int i = 0; i < balls1.Count; i++)
-            {
-                balls1[i].Move(); //移動
-                pbs1[i].Location = new Point((int)balls1[i].PosX, (int)balls1[i].PosY); //画像の位置
-            }*/
-
-
+                pbs[i].Location = new Point((int)balls[i].PosX, (int)balls[i].PosY); //画像の位置
+            }
         }
     }
 }

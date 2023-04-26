@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 namespace BallApp {
     class SoccerBall :Obj{
         //フィールド
-       
         Random random = new Random();
-        private static int count;
-      
+
+        private static int scount = 0;
+
+        public static int Scount { get => scount; set => scount = value; }
+
         //コンストラクタ
         public SoccerBall(double xp,double yp ):base( xp,  yp,@"pic\soccer_ball.png") {
             
@@ -20,9 +22,10 @@ namespace BallApp {
 
             MoveX =(rndX != 0 ? rndX :1); //乱数で移動量を設定
             MoveY =(rndY != 0 ? rndY :1);
-
+            Scount++;
         }
-        
+
+
         public override void Move(){
 
             Console.WriteLine("X座標＝{0},Y座標＝{1}", PosX, PosY);
@@ -33,7 +36,7 @@ namespace BallApp {
             }else if (PosY > 520 || PosY < 0){
                 MoveY *= -1;
             }
-
+            
         }
     }
 }
