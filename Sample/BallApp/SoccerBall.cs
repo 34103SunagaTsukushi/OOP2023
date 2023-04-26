@@ -10,9 +10,9 @@ namespace BallApp {
         //フィールド
         Random random = new Random();
 
-        private static int scount = 0;
+        private static int count = 0;
 
-        public static int Scount { get => scount; set => scount = value; }
+        public static int Count { get => count; set => count = value; }
 
         //コンストラクタ
         public SoccerBall(double xp,double yp ):base( xp,  yp,@"pic\soccer_ball.png") {
@@ -22,7 +22,7 @@ namespace BallApp {
 
             MoveX =(rndX != 0 ? rndX :1); //乱数で移動量を設定
             MoveY =(rndY != 0 ? rndY :1);
-            Scount++;
+            Count++;
         }
 
 

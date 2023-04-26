@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace BallApp {
+    class Bar : Obj {
+
+        public Bar(double xp ,double yp):base(400.0,400.0, @"pic\bar.png") {
+            base.MoveX = 10.0;
+            base.MoveY = 0;
+
+        }
+        //抽象クラスを継承しているので、不要なメソッドは空にする
+        public override void Move() {
+            //空のメソッドにする
+        }
+        public void Move(Keys direction) {
+            if(Keys.Right == direction)
+            {
+                if (PosX <= 630)
+                {
+                    PosX += 20;
+                }
+                
+            }
+            else if (Keys.Left == direction)
+            {
+                if (PosX >= 20)
+                {
+                    PosX -= 20;
+                }
+                    
+            }
+           
+        }
+    }
+}
