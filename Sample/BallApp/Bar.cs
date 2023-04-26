@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace BallApp {
     class Bar : Obj {
 
-        public Bar(double xp ,double yp):base(400.0,400.0, @"pic\bar.png") {
+        public Bar(double xp ,double yp):base(xp,yp, @"pic\bar.png") {
             base.MoveX = 10.0;
             base.MoveY = 0;
 
@@ -18,20 +18,20 @@ namespace BallApp {
         public override void Move() {
             //空のメソッドにする
         }
-        public void Move(Keys direction) {
+        public override void Move(Keys direction) {
             if(Keys.Right == direction)
             {
-                if (PosX <= 630)
+                if (PosX < 635)
                 {
-                    PosX += 20;
+                    PosX += MoveX;
                 }
                 
             }
             else if (Keys.Left == direction)
             {
-                if (PosX >= 20)
+                if (PosX > 0)
                 {
-                    PosX -= 20;
+                    PosX -= MoveX;
                 }
                     
             }

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BallApp {
     class SoccerBall :Obj{
@@ -37,6 +38,9 @@ namespace BallApp {
                 MoveY *= -1;
             }
             
+        }
+        public override void Move(Keys direction) {
+            ;
         }
     }
 }
