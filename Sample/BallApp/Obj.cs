@@ -37,7 +37,7 @@ namespace BallApp {
         public static int Count { get => count; set => count = value; }
 
         //移動メソッド(抽象メソッド)
-        public abstract void Move();
+        public abstract void Move(PictureBox pbBar,PictureBox PbBall);
         public abstract void Move(Keys direction);
         
     }

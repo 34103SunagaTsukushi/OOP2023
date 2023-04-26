@@ -27,17 +27,26 @@ namespace BallApp {
         }
 
 
-        public override void Move(){
+        public override void Move(PictureBox pbBar, PictureBox pbBall) {
+
+
+            Rectangle rBar = new Rectangle(pbBar.Location.X, pbBar.Location.Y, pbBar.Width, pbBar.Height);
+            Rectangle rBall = new Rectangle(pbBall.Location.X, pbBall.Location.Y, pbBall.Width, pbBall.Height);
+
 
             Console.WriteLine("X座標＝{0},Y座標＝{1}", PosX, PosY);
+
+           
+
+            if (PosX > 750 || PosX < 0) {
+                MoveX = -MoveX;
+            }else if (PosY > 520 || PosY < 0 || rBar.IntersectsWith(rBall))
+            {
+                MoveY = -MoveY;
+            }
             PosX += MoveX;
             PosY += MoveY;
-            if (PosX > 750 || PosX < 0){
-                MoveX *= -1;
-            }else if (PosY > 520 || PosY < 0){
-                MoveY *= -1;
-            }
-            
+
         }
         public override void Move(Keys direction) {
             ;
