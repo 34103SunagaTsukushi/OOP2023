@@ -19,6 +19,7 @@ class Program {
             //Console.WriteLine("大福もちの税込価格：" + daifuku.GetPriceIncludingTax());
             #endregion
 
+
             #region 0508演習1
             //今日の日付
             DateTime date = DateTime.Today;
@@ -35,8 +36,20 @@ class Program {
             #endregion
 
 
-
-
+            #region 0508演習2
+            Console.WriteLine("誕生日を入力");
+            Console.Write("西暦:");
+            int seireki = int.Parse(Console.ReadLine());
+            Console.Write("月:");
+            int tuki = int.Parse(Console.ReadLine());
+            Console.Write("日:");
+            int niti = int.Parse(Console.ReadLine());
+            //誕生日
+            DateTime birthDay = new DateTime(seireki, tuki, niti);
+            DateTime d = DateTime.Today;
+            double totalDay = (d-birthDay).TotalDays;
+            Console.WriteLine("あなたは生まれてから今日まで" + totalDay + "日目です。");
+            #endregion
         }
     }
 }
