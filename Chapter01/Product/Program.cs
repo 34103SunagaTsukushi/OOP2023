@@ -9,6 +9,9 @@ namespace ProductSample {
 
 class Program {
         static void Main(string[] args) {
+            string[] DayOfWeekjp = { "日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日" };
+
+
 
             #region P26のサンプルプログラム
             //インスタンスの生成
@@ -24,7 +27,7 @@ class Program {
             //今日の日付
             DateTime date = DateTime.Today;
             string today = date.ToString("yyyy年MM月dd日");
-            Console.WriteLine("今日の日付:"+today);
+            Console.WriteLine("今日の日付:"+ today);
 
             //10日後を求める
             string daysAfter10 = date.AddDays(10).ToString("yyyy年MM月dd日");
@@ -37,19 +40,28 @@ class Program {
 
 
             #region 0508演習2
+            //入力
             Console.WriteLine("誕生日を入力");
             Console.Write("西暦:");
-            int seireki = int.Parse(Console.ReadLine());
+            int y = int.Parse(Console.ReadLine());
             Console.Write("月:");
-            int tuki = int.Parse(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
             Console.Write("日:");
-            int niti = int.Parse(Console.ReadLine());
+            int d = int.Parse(Console.ReadLine());
             //誕生日
-            DateTime birthDay = new DateTime(seireki, tuki, niti);
-            DateTime d = DateTime.Today;
-            double totalDay = (d-birthDay).TotalDays;
-            Console.WriteLine("あなたは生まれてから今日まで" + totalDay + "日目です。");
+            DateTime birthDay = new DateTime(y, m, d);
+            //比較
+            TimeSpan timespan = date-birthDay;//dateは今日の日付
+            Console.WriteLine("あなたは生まれてから今日まで{0}日目です。",timespan.Days);
             #endregion
+
+
+            //誕生日の曜日   ( ０１２３４５６ )
+            //string youbi = ("日月火水木金土").Substring(int.Parse(birthDay.DayOfWeek.ToString("d")), 1);//substringで取り出す
+
+            Console.WriteLine("あなたは{0}に生まれました。",DayOfWeekjp[(int)birthDay.DayOfWeek]);
+
+
         }
     }
 }
