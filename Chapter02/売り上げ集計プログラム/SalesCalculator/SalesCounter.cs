@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SalesCalculator {
     public class SalesCounter {
 
-        private List<Sale> _sales;
+        private IEnumerable<Sale> _sales;
 
         //コンストラクタ
         public SalesCounter(string filePath) {
@@ -16,9 +16,9 @@ namespace SalesCalculator {
 
         }
         //店舗別売り上げを求める
-        public Dictionary<string, int> GetPerStoreSales() {
-            Dictionary<string, int> dict = new Dictionary<string, int>();
-            foreach(Sale sale in _sales) {
+        public IDictionary<string, int> GetPerStoreSales() {
+            var dict = new Dictionary<string, int>();
+            foreach(var sale in _sales) {
                 if (dict.ContainsKey(sale.ShopName))
                     dict[sale.ShopName] += sale.Amount;//店名が存在する
                 else
@@ -27,7 +27,7 @@ namespace SalesCalculator {
             return dict;
         }
         //売り上げデータを読み込み、Saleオブジェクトのリストを返す
-        private static List<Sale> ReadSales(string filePath) {
+        private static IEnumerable<Sale> ReadSales(string filePath) {
             List<Sale> sales = new List<Sale>();
             //売り上げデータを格納する
             string[] lines = File.ReadAllLines(filePath);
