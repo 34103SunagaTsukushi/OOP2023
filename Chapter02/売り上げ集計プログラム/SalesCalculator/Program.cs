@@ -14,8 +14,6 @@ namespace SalesCalculator {
             foreach(var obj in amountPerStore) {
                 Console.WriteLine("{0}{1:C}", obj.Key, obj.Value);
             }
-
         }
-       
     }
 }
