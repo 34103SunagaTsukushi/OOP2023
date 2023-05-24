@@ -39,15 +39,23 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_2(List<int> numbers) {
-
+            foreach(var num in numbers) {
+                Console.WriteLine(num / 2.0);
+            }
         }
 
         private static void Exercise1_3(List<int> numbers) {
-
+            var findhigh = numbers.Where(n => n >= 50);
+            foreach(var num in findhigh) {
+                Console.WriteLine(num);
+            }
         }
 
         private static void Exercise1_4(List<int> numbers) {
-
+            var select = numbers.Select(n => n * 2);
+            foreach(var num in select) {
+                Console.WriteLine(num);
+            }
         }
     }
 }
