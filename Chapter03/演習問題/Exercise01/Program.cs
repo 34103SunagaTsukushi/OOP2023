@@ -51,7 +51,7 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(List<int> numbers) {
-            var select = numbers.Select(n => n * 2);
+            List<int> select = numbers.Select(n => n * 2).ToList();
             foreach(var num in select) {
                 Console.WriteLine(num);
             }
