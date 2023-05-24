@@ -45,16 +45,16 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_3(List<string> names) {
-            var ans = names.Where(s => s.Contains("o"));
+            var ans = names.Where(s => s.Contains("o")).ToArray();
             foreach(var name in ans) {
                 Console.WriteLine(name);
             }
         }
 
         private static void Exercise2_4(List<string> names) {
-            var ans = names.Where(s => s[0] == 'B');
+            var ans = names.Where(s => s.StartsWith("B")).Select(s => new {s,s.Length });
             foreach(var name in ans) {
-                Console.WriteLine( name + "," + name.Length);
+                Console.WriteLine("{0},{1}" ,name.s, name.Length);
             }
         }
     }
