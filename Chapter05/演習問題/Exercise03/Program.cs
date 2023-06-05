@@ -54,9 +54,12 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_5(string text) {
-            var sb = new StringBuilder();
             var words = text.Split(' ');
-            foreach (var word in words) {
+            var sb = new StringBuilder();
+            //var sb = new StringBuilder(words[0]);最初の一個目は入れておく
+            foreach (var word in words) {//word.Skip(1)一個目を飛ばして二個目からにする
+                //sb.Append(' ');
+                //sb.Append(word);
                 sb.Append(word);
                 if (word != words.Last()) 
                     sb.Append(' ');
