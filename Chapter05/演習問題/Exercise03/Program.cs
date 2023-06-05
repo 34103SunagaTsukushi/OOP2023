@@ -22,28 +22,47 @@ namespace Exercise03 {
             Console.WriteLine("-----");
 
             Exercise3_5(text);
-            {\rtf1}
+            //{\rtf1}
 
         }
 
         private static void Exercise3_1(string text) {
-            throw new NotImplementedException();
+            var spaces = text.Count(s=> s.ToString().Contains(" "));//訂正版
+            //var spaces = text.Count(s => s == ' ');
+            //var spaces = text.ToList().FindAll(s => s.Equals(' ')).Count(); 
+            Console.WriteLine("空白数:{0}" ,spaces);
+            
+            
         }
 
         private static void Exercise3_2(string text) {
-            throw new NotImplementedException();
+            var replaced = text.Replace("big", "small");
+            Console.WriteLine(replaced);
         }
 
         private static void Exercise3_3(string text) {
-            throw new NotImplementedException();
+            var ans = text.Split(' ').Count();
+            Console.WriteLine("単語数：{0}", ans);
         }
 
         private static void Exercise3_4(string text) {
-            throw new NotImplementedException();
+            var words = text.Split(' ').Where(s => s.Length <= 4);
+            foreach (var item in words) {
+                Console.WriteLine(item);
+            }
+            
         }
 
         private static void Exercise3_5(string text) {
-            throw new NotImplementedException();
+            var sb = new StringBuilder();
+            var words = text.Split(' ');
+            foreach (var item in words) {
+                sb.Append(item);
+                if (item != words.Last()) 
+                    sb.Append(' ');
+            }
+            
+            Console.WriteLine(sb);
         }
     }
 }
