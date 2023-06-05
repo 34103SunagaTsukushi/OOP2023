@@ -27,8 +27,8 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_1(string text) {
-            var spaces = text.Count(s=> s.ToString().Contains(" "));//訂正版
-            //var spaces = text.Count(s => s == ' ');
+            //var spaces = text.Count(s=> s.ToString().Contains(" "));//訂正版
+            var spaces = text.Count(c => c == ' ');//模範 charなのでsよりcの方が望ましい。
             //var spaces = text.ToList().FindAll(s => s.Equals(' ')).Count(); 
             Console.WriteLine("空白数:{0}" ,spaces);
             
@@ -41,14 +41,14 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_3(string text) {
-            var ans = text.Split(' ').Count();
-            Console.WriteLine("単語数：{0}", ans);
+            var counts = text.Split(' ').Count();
+            Console.WriteLine("単語数：{0}", counts);
         }
 
         private static void Exercise3_4(string text) {
             var words = text.Split(' ').Where(s => s.Length <= 4);
-            foreach (var item in words) {
-                Console.WriteLine(item);
+            foreach (var word in words) {
+                Console.WriteLine(word);
             }
             
         }
@@ -56,9 +56,9 @@ namespace Exercise03 {
         private static void Exercise3_5(string text) {
             var sb = new StringBuilder();
             var words = text.Split(' ');
-            foreach (var item in words) {
-                sb.Append(item);
-                if (item != words.Last()) 
+            foreach (var word in words) {
+                sb.Append(word);
+                if (word != words.Last()) 
                     sb.Append(' ');
             }
             
