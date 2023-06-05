@@ -61,8 +61,8 @@ namespace Exercise03 {
                 if (word != words.Last()) 
                     sb.Append(' ');
             }
-            
-            Console.WriteLine(sb);
+            var createWords = sb.ToString();
+            Console.WriteLine(createWords );
         }
     }
 }
