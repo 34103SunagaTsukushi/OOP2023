@@ -27,27 +27,26 @@ namespace Exercise01 {
 
         private static void Exercise1_1(int[] numbers) {
             Console.WriteLine(numbers.Max());
-            
         }
 
         private static void Exercise1_2(int[] numbers) {
             var lastnumbers = numbers.Skip(numbers.Length-2);
+            
             foreach(var number in lastnumbers) {
-                Console.Write(number+",");
+                Console.WriteLine(number);
             }
-            Console.WriteLine();
         }
 
         private static void Exercise1_3(int[] numbers) {
             var strNumbers = numbers.Select(x => x.ToString());
             foreach(var number in strNumbers) {
-                Console.Write(number + ",");
+                Console.WriteLine(number);
             }
-            Console.WriteLine();
         }
 
         private static void Exercise1_4(int[] numbers) {
-            var numbersAsc = numbers.OrderBy(x => x);
+            var numbersAsc = numbers.OrderBy(x => x).Take(3);
+
             foreach(var number in numbersAsc) {
                 Console.WriteLine(number);
             }
@@ -56,8 +55,6 @@ namespace Exercise01 {
         private static void Exercise1_5(int[] numbers) {
             var ans = numbers.Where(x => x >= 10).Distinct().Count();
             Console.WriteLine(ans);
-            
-            
         }
     }
 }
