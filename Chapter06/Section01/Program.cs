@@ -11,10 +11,27 @@ namespace Section01 {
             //Console.WriteLine(numbers.Average());
 
             var books = Books.GetBooks();
+
+
+            //五百円以上の本のタイトルをすべて出力
+
             var booksObj = books.Where(x => x.Title.Contains("物語")).OrderByDescending(x => x.Price);
             foreach (var book in booksObj) {
                 Console.WriteLine("{0}:{1}円",book.Title,book.Price);
             }
+
+
+            Console.WriteLine("------①------");
+            //①
+            var avg = books.Where(x => x.Title.Contains("物語")).Average(x => x.Pages);
+            Console.WriteLine(avg);
+            Console.WriteLine("------②------");
+            //②
+            var titleDsc = books.OrderByDescending(x => x.Title.Length);
+            foreach(var book in titleDsc) {
+                Console.WriteLine("{0}",book.Title);
+            }
+
         }
     }
 }
