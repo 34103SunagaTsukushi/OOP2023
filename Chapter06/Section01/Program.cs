@@ -22,14 +22,16 @@ namespace Section01 {
 
 
             Console.WriteLine("------①------");
-            //①
-            var avg = books.Where(x => x.Title.Contains("物語")).Average(x => x.Pages);
-            Console.WriteLine(avg);
+            //①タイトルに「物語」がつく本のページの平均
+            var booksAvg = books.Where(x => x.Title.Contains("物語")).Average(x => x.Pages);
+            Console.WriteLine(booksAvg);
+
+
             Console.WriteLine("------②------");
-            //②
+            //②タイトルが長い順に出力
             var titleDsc = books.OrderByDescending(x => x.Title.Length);
             foreach(var book in titleDsc) {
-                Console.WriteLine("{0}",book.Title);
+                Console.WriteLine("{0}:{1}円",book.Title,book.Price);
             }
 
         }
