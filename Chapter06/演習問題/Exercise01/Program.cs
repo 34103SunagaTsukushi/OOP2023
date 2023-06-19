@@ -38,14 +38,14 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3(int[] numbers) {
-            var strNumbers = numbers.Select(x => x.ToString());
+            var strNumbers = numbers.Select(n => n.ToString());
             foreach(var number in strNumbers) {
                 Console.WriteLine(number);
             }
         }
 
         private static void Exercise1_4(int[] numbers) {
-            var numbersAsc = numbers.OrderBy(x => x).Take(3);
+            var numbersAsc = numbers.OrderBy(n => n).Take(3);
 
             foreach(var number in numbersAsc) {
                 Console.WriteLine(number);
@@ -53,7 +53,7 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_5(int[] numbers) {
-            var ans = numbers.Where(x => x >= 10).Distinct().Count();
+            var ans = numbers.Where(n => n >= 10).Distinct().Count();
             Console.WriteLine(ans);
         }
     }

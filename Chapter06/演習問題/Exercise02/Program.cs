@@ -42,31 +42,41 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_1(List<Book> books) {
-
+            var book  = books.Find(x => x.Title == "ワンダフル・C#ライフ");
+            Console.WriteLine("{0}円,ページ数：{1}ページ", book.Price, book.Pages);
         }
 
         private static void Exercise2_2(List<Book> books) {
-
+            var anyBook = books.Count(x => x.Title.Contains("C#"));
+            Console.WriteLine(anyBook+"冊");
         }
 
         private static void Exercise2_3(List<Book> books) {
-
+            var avgBook = books.FindAll(x => x.Title.Contains("C#"));
+            Console.WriteLine( avgBook.Average(x => x.Pages));
         }
 
         private static void Exercise2_4(List<Book> books) {
-
+            Console.WriteLine( (books.Find(x => x.Price >= 4000)).Title);
         }
 
         private static void Exercise2_5(List<Book> books) {
-
+            var maxPage = books.Where(x => x.Price < 4000).Max(x => x.Pages);
+            Console.WriteLine(maxPage +"ページ");
         }
 
         private static void Exercise2_6(List<Book> books) {
-
+            var orderBooks = books.Where(x => x.Pages >= 400).OrderByDescending(x => x.Price);
+            foreach(var book in orderBooks) {
+                Console.WriteLine("{0},{1}ページ", book.Title, book.Price);
+            }
         }
 
         private static void Exercise2_7(List<Book> books) {
-
+            var bookObj = books.Where(x => x.Title.Contains("C#") && x.Pages <= 500);
+            foreach(var book in bookObj) {
+                Console.WriteLine(book.Title);
+            }
         }
         class Book {
             public string Title { get; set; }
