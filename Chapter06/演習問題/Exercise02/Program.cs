@@ -42,18 +42,20 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_1(List<Book> books) {
-            var book  = books.Find(x => x.Title == "ワンダフル・C#ライフ");
-            Console.WriteLine("{0}円,ページ数：{1}ページ", book.Price, book.Pages);
+            var book  = books.Where(x => x.Title == "ワンダフル・C#ライフ");
+            foreach (var item in book) {
+                Console.WriteLine("{0}円,ページ数：{1}ページ", item.Price, item.Pages);
+            }
         }
 
         private static void Exercise2_2(List<Book> books) {
-            var anyBook = books.Count(x => x.Title.Contains("C#"));
-            Console.WriteLine(anyBook+"冊");
+            var count = books.Count(x => x.Title.Contains("C#"));
+            Console.WriteLine(count+"冊");
         }
 
         private static void Exercise2_3(List<Book> books) {
-            var avgBook = books.FindAll(x => x.Title.Contains("C#"));
-            Console.WriteLine( avgBook.Average(x => x.Pages));
+            var avgBook = books.FindAll(x => x.Title.Contains("C#")).Average(x => x.Pages);
+            Console.WriteLine( avgBook);
         }
 
         private static void Exercise2_4(List<Book> books) {
