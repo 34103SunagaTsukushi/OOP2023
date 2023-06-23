@@ -27,26 +27,31 @@ namespace Section01 {
             #endregion
 
             //Dictionaryの宣言
-            var prefDict = new Dictionary<string, string>();
-
+            var prefDict = new Dictionary<string, CityInfo>();
+            
 
             Console.WriteLine("県庁所在地の登録");
             Console.Write("県名:");
             string pref = Console.ReadLine();
-            string city;
-            while(pref != ("999")) {
+            
+            while (pref != ("999")) {
+
+                var cityinfo = new CityInfo();
+
                 Console.Write("所在地:");
-                city = Console.ReadLine();
+                cityinfo.City = Console.ReadLine();
+                Console.Write("人口:");
+                cityinfo.Population = int.Parse(Console.ReadLine());
                 //重複チェック処理
                 if (prefDict.ContainsKey(pref)) {
                     Console.WriteLine("同じ県名が存在しています。");
                     Console.WriteLine("上書きしますか？(y/n)");
                     if(Console.ReadLine() == "y") {
-                        prefDict[pref] = city;
+                        prefDict[pref] = cityinfo;
                     }
                 }
                 else {
-                    prefDict[pref] = city;
+                    prefDict[pref] = cityinfo;
                 }
                 Console.Write("県名:");
                 pref = Console.ReadLine();
@@ -55,16 +60,16 @@ namespace Section01 {
 
             Console.WriteLine("一覧表示:1,県名指定:2");
             int a = int.Parse(Console.ReadLine());
-            if(a == 1) {
+            if(a == 1) {//一覧表示
                 foreach(var item in prefDict) {
-                    Console.WriteLine("{0}({1})",item.Key,item.Value);
+                    Console.WriteLine("{0}({1},{2})",item.Key,item.Value.City,item.Value.Population);
                 }
             }
-            else {
+            else {//県名指定表示
                 Console.Write("県名を入力:");
                 string ans = Console.ReadLine();
                 if (prefDict.ContainsKey(ans)) {
-                    Console.WriteLine("{0}です。", prefDict[ans]);
+                    Console.WriteLine("{0}({1})です。", prefDict[ans].City,prefDict[ans].Population);
                 }
                 else {
                     Console.WriteLine("入力した県名が存在していません。");
@@ -75,8 +80,9 @@ namespace Section01 {
 
         }
         class CityInfo {
-            string City { get; set; }
-            string Population { get; set; }
+            public string City { get; set; } //都市
+            public int Population { get; set; } //人口
+
         }
     }
 }
