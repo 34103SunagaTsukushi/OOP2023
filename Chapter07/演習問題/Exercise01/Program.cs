@@ -40,7 +40,7 @@ namespace Exercise01 {
                 }
 
             }
-            foreach(var item in dict){
+            foreach(var item in dict){//SortedDictionaryなのでOrderByを使わない
                 Console.WriteLine("'{0}':{1}", item.Key, item.Value);
             }
 
