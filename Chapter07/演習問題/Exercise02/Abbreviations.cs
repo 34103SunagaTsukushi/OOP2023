@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Exercise02{
     // List 7-19
     // 略語と対応する日本語を管理するクラス
-    class Abbreviations :IEnumerable<KeyValuePair<string,string>> {
+    class Abbreviations :IEnumerable<KeyValuePair<string,string>> {//_dictに対してインターフェースを作る
         private Dictionary<string, string> _dict = new Dictionary<string, string>();
 
         // コンストラクタ
@@ -60,14 +60,12 @@ namespace Exercise02{
             }
         }
 
-        
-
         public IEnumerator<KeyValuePair<string, string>> GetEnumerator() {
-            throw new NotImplementedException();
+            return ((IEnumerable<KeyValuePair<string, string>>)_dict).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator() {
-            throw new NotImplementedException();
+            return ((IEnumerable)_dict).GetEnumerator();
         }
     }
 }
