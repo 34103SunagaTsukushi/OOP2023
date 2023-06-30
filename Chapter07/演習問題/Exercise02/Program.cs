@@ -39,10 +39,6 @@ namespace Exercise02 {
             }
             Console.WriteLine();
 
-
-
-
-
             //7.2.3(Removeの呼び出し)
 
             Console.WriteLine(abbrs.Count);
