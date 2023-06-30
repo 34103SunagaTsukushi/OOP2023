@@ -49,19 +49,18 @@ namespace Exercise02{
 
         //7.2.2
         public bool Remove(string abb) {
-            if (_dict.ContainsKey(abb)) {
-                _dict.Remove(abb);
-                return true;
-            }
-            else {
-                return false;
+            return _dict.Remove(abb);
+            
+        }
+        //7.2.4
+        //IEnumerable<>を実装したので、LINQが使える。
+        public  void Sort() {
+            foreach (var item in _dict.Where(s => s.Key.Length == 3)) {
+                Console.WriteLine("{0}={1}", item.Key, item.Value);
             }
         }
 
-        //7.2.3(Removeの呼び出し)
-
-        //7.2.4
-        //IEnumerable<>を実装したので、LINQが使える。
+        
 
         public IEnumerator<KeyValuePair<string, string>> GetEnumerator() {
             throw new NotImplementedException();
