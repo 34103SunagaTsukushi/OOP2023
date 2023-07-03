@@ -23,12 +23,9 @@ namespace Exercise02 {
 
         }
         public static DateTime NextWeek(DateTime date,DayOfWeek dayOfWeek) {
+            var nextday = date.AddDays(7);
             var days = (int)dayOfWeek - (int)(date.DayOfWeek);
-            if(days <= 7) {
-                days += 7;
-           
-            }
-            return date.AddDays(days);
+            return nextday.AddDays(days);
         }
     }
 }
