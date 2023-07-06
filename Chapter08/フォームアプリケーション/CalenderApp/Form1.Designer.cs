@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace CalenderApp {
     partial class Form1 {
         /// <summary>
@@ -35,7 +37,8 @@ namespace CalenderApp {
             this.btNextMonth = new System.Windows.Forms.Button();
             this.btNextDay = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btAge = new System.Windows.Forms.Button();
+            this.tbNow = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -84,6 +87,7 @@ namespace CalenderApp {
             this.btFowerdYear.TabIndex = 4;
             this.btFowerdYear.Text = "-年";
             this.btFowerdYear.UseVisualStyleBackColor = true;
+            this.btFowerdYear.Click += new System.EventHandler(this.btFowerdYear_Click);
             // 
             // btNextYear
             // 
@@ -94,6 +98,7 @@ namespace CalenderApp {
             this.btNextYear.TabIndex = 5;
             this.btNextYear.Text = "+年";
             this.btNextYear.UseVisualStyleBackColor = true;
+            this.btNextYear.Click += new System.EventHandler(this.btNextYear_Click);
             // 
             // btFowerdMonth
             // 
@@ -104,6 +109,7 @@ namespace CalenderApp {
             this.btFowerdMonth.TabIndex = 6;
             this.btFowerdMonth.Text = "-月";
             this.btFowerdMonth.UseVisualStyleBackColor = true;
+            this.btFowerdMonth.Click += new System.EventHandler(this.btFowerdMonth_Click);
             // 
             // btFowerdDay
             // 
@@ -114,6 +120,7 @@ namespace CalenderApp {
             this.btFowerdDay.TabIndex = 7;
             this.btFowerdDay.Text = "-日";
             this.btFowerdDay.UseVisualStyleBackColor = true;
+            this.btFowerdDay.Click += new System.EventHandler(this.btFowerdDay_Click);
             // 
             // btNextMonth
             // 
@@ -124,6 +131,7 @@ namespace CalenderApp {
             this.btNextMonth.TabIndex = 8;
             this.btNextMonth.Text = "+月";
             this.btNextMonth.UseVisualStyleBackColor = true;
+            this.btNextMonth.Click += new System.EventHandler(this.btNextMonth_Click);
             // 
             // btNextDay
             // 
@@ -134,6 +142,7 @@ namespace CalenderApp {
             this.btNextDay.TabIndex = 9;
             this.btNextDay.Text = "+日";
             this.btNextDay.UseVisualStyleBackColor = true;
+            this.btNextDay.Click += new System.EventHandler(this.btNextDay_Click);
             // 
             // label2
             // 
@@ -145,21 +154,32 @@ namespace CalenderApp {
             this.label2.TabIndex = 10;
             this.label2.Text = "現在時刻:";
             // 
-            // textBox1
+            // btAge
             // 
-            this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox1.Location = new System.Drawing.Point(183, 359);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(347, 26);
-            this.textBox1.TabIndex = 11;
+            this.btAge.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btAge.Location = new System.Drawing.Point(183, 77);
+            this.btAge.Name = "btAge";
+            this.btAge.Size = new System.Drawing.Size(124, 40);
+            this.btAge.TabIndex = 12;
+            this.btAge.Text = "年齢";
+            this.btAge.UseVisualStyleBackColor = true;
+            // 
+            // tbNow
+            // 
+            this.tbNow.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tbNow.Location = new System.Drawing.Point(183, 359);
+            this.tbNow.Multiline = true;
+            this.tbNow.Name = "tbNow";
+            this.tbNow.Size = new System.Drawing.Size(243, 27);
+            this.tbNow.TabIndex = 13;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 424);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbNow);
+            this.Controls.Add(this.btAge);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btNextDay);
             this.Controls.Add(this.btNextMonth);
@@ -191,7 +211,8 @@ namespace CalenderApp {
         private System.Windows.Forms.Button btNextMonth;
         private System.Windows.Forms.Button btNextDay;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btAge;
+        private TextBox tbNow;
     }
 }
 
