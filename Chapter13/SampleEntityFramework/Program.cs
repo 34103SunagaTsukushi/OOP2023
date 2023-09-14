@@ -10,17 +10,6 @@ using System.Threading.Tasks;
 namespace SampleEntityFramework {
     class Program {
         static void Main(string[] args) {
-            //InsertBooks();
-            //Console.Write("データを挿入しました。続けるにはEnterキーを押してください。");
-            //AddAuthors();
-            //AddBooks();
-            //UpdateBook();
-            //DeleteBook();
-
-            //foreach(var book in GetBooks()) {
-            //    Console.WriteLine($"{book.Title}{book.Author.Name}");
-
-            //}
 
 
 
@@ -34,7 +23,7 @@ namespace SampleEntityFramework {
 
             Console.WriteLine();
             Console.WriteLine("# 1.3");
-            Exercise1_3();
+            //Exercise1_3();
 
             Console.WriteLine();
             Console.WriteLine("# 1.4");
@@ -42,7 +31,7 @@ namespace SampleEntityFramework {
 
             Console.WriteLine();
             Console.WriteLine("# 1.5");
-            //Exercise1_5();
+            Exercise1_5();
 
             Console.ReadLine();
 
@@ -89,6 +78,7 @@ namespace SampleEntityFramework {
                         Name = "川端康成",
                     }
                 };
+                db.Books.Add(book2);
                 var author1 = db.Authors.Single(a => a.Name == "夏目漱石");
                 var book3 = new Book {
                     Title = "こころ",
@@ -122,8 +112,6 @@ namespace SampleEntityFramework {
                foreach(var book in db.Books.Where(book => book.Title.Length == db.Books.Max(b => b.Title.Length))) {
                     Console.WriteLine(book.Title);
                 }
-
-                
             }
         }
 
@@ -142,7 +130,19 @@ namespace SampleEntityFramework {
         }
 
         private static void Exercise1_5() {
+            using(var db = new BooksDbContext()) {
 
+                var descBooks = db.Books.OrderByDescending(book => book.Author.Birthday);
+                foreach(var author in descBooks.ToList()) {
+
+
+                    Console.WriteLine($"{author.Author.Name}:{author.Title}({author.PublishedYear})");
+
+
+                }
+
+
+            }
         }
 
         // List 13-5
