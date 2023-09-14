@@ -34,11 +34,11 @@ namespace SampleEntityFramework {
 
             Console.WriteLine();
             Console.WriteLine("# 1.3");
-            //Exercise1_3();
+            Exercise1_3();
 
             Console.WriteLine();
             Console.WriteLine("# 1.4");
-            //Exercise1_4();
+            Exercise1_4();
 
             Console.WriteLine();
             Console.WriteLine("# 1.5");
@@ -109,18 +109,36 @@ namespace SampleEntityFramework {
 
 
         private static void Exercise1_2() {
-            foreach(var book in GetBooks()) {
-                Console.WriteLine($"{book.Title},{book.PublishedYear}:{book.Author.Name}");
 
+            using(var db = new BooksDbContext()) {
+                foreach(var book in db.Books.ToList()) {
+                    Console.WriteLine($"{book.Title},{book.PublishedYear}:{book.Author.Name}");
+                }
             }
         }
 
         private static void Exercise1_3() {
+            using(var db = new BooksDbContext()) {
+               foreach(var book in db.Books.Where(book => book.Title.Length == db.Books.Max(b => b.Title.Length))) {
+                    Console.WriteLine(book.Title);
+                }
 
+                
+            }
         }
 
         private static void Exercise1_4() {
-
+            int cnt = 1;
+            using(var db = new BooksDbContext()) {
+                var asceBooks = db.Books.OrderBy(book => book.PublishedYear);
+                
+                foreach(var book in asceBooks.ToList()) {
+                    Console.WriteLine($"{book.Title}:{book.Author.Name}");
+                    cnt++;
+                    if(cnt > 3)
+                        break;
+                }
+            }
         }
 
         private static void Exercise1_5() {
