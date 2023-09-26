@@ -19,7 +19,7 @@ namespace SampleEntityFramework {
 
             Console.WriteLine();
             Console.WriteLine("# 1.2");
-            Exercise1_2();
+            //Exercise1_2();
 
             Console.WriteLine();
             Console.WriteLine("# 1.3");
@@ -27,7 +27,7 @@ namespace SampleEntityFramework {
 
             Console.WriteLine();
             Console.WriteLine("# 1.4");
-            Exercise1_4();
+            //Exercise1_4();
 
             Console.WriteLine();
             Console.WriteLine("# 1.5");
@@ -118,13 +118,10 @@ namespace SampleEntityFramework {
         private static void Exercise1_4() {
             int cnt = 1;
             using(var db = new BooksDbContext()) {
-                var asceBooks = db.Books.OrderBy(book => book.PublishedYear);
+                var asceBooks = db.Books.OrderBy(book => book.PublishedYear).Take(3);
                 
-                foreach(var book in asceBooks.ToList()) {
+                foreach(var book in asceBooks.ToArray()) {
                     Console.WriteLine($"{book.Title}:{book.Author.Name}");
-                    cnt++;
-                    if(cnt > 3)
-                        break;
                 }
             }
         }
@@ -132,16 +129,15 @@ namespace SampleEntityFramework {
         private static void Exercise1_5() {
             using(var db = new BooksDbContext()) {
 
-                var descBooks = db.Books.OrderByDescending(book => book.Author.Birthday);
-                foreach(var author in descBooks.ToList()) {
-
-
-                    Console.WriteLine($"{author.Author.Name}:{author.Title}({author.PublishedYear})");
-
-
+                var authors = db.Authors.OrderByDescending(a => a.Birthday);
+                foreach(var author in authors.ToArray()) {
+                    Console.WriteLine("{0}:{1:yyyy/MM}", author.Name, author.Birthday);
+                    foreach(var book in author.Books.ToArray()) {
+                        Console.WriteLine("{0}:{1}",book.Title,book.PublishedYear,
+                            book.Author.Name,book.Author.Birthday);
+                    }
+                    Console.WriteLine();
                 }
-
-
             }
         }
 
