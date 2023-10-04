@@ -23,27 +23,50 @@ namespace RssReader {
         
 
         private void btGet_Click(object sender, EventArgs e) {
-            using(var wc = new WebClient()) {
-                var url = wc.OpenRead(tbUrl.Text);
-                XDocument xdoc = XDocument.Load(url);
+            try {
+                if(tbUrl.Text.Length != 0) {
+                    using(var wc = new WebClient()) {
+                        var url = wc.OpenRead(tbUrl.Text);
+                        XDocument xdoc = XDocument.Load(url);
 
-                ItemDatas = xdoc.Root.Descendants("item").Select(x => new ItemData {
-                    Title = (string)x.Element("title"),
-                    Link = (string)x.Element("link")
+                        //btGetがクリックされたときに初期化する
+                        ItemDatas.Clear();
+                        lbRssTitle.Items.Clear();
 
-                }).ToList();
-                foreach(var node in ItemDatas) {
-                    lbRssTitle.Items.Add(node.Title);
+                        ItemDatas = xdoc.Root.Descendants("item").Select(x => new ItemData {
+                            Title = (string)x.Element("title"),
+                            Link = (string)x.Element("link")
+
+                        }).ToList();
+
+                        foreach(var node in ItemDatas) {
+                            lbRssTitle.Items.Add(node.Title);
+                        }
+                    }
+
+                } else {
+                    //URLが入力されていないのにbtGetがクリックされたときのエラー
+                    tbException.Text = "URLが入力されていません。";
                 }
-                
-
+            } catch(System.Net.WebException ) {
+                //URLが正しくないときのエラー
+                tbException.Text = "正しいURLを入力して下さい。";
+                tbUrl.Text = string.Empty;
             }
+            
         }
 
 
         private void lbRssTitle_Click(object sender, EventArgs e) {
+            if(lbRssTitle.Items.Count != 0) {
+                wbBrowser.Navigate(ItemDatas[lbRssTitle.SelectedIndex].Link);
+            } else {
+                //lbRssTitleに選択項目がないときのエラー
+                tbException.Text = "選択項目がありません。";
+            }
+        }
 
-            wbBrowser.Navigate(ItemDatas[lbRssTitle.SelectedIndex].Link);
+        private void Form1_SizeChanged(object sender, EventArgs e) {
 
         }
     }
