@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
+
 namespace Section03 {
     class Program {
         static void Main(string[] args) {
             //NomalSearch();
-            //SearchAll();
+            SearchAll();
             //SearchAllWithNextMatch();
             //SearchAndLinq();
-            CapturingGroup();
+            //CapturingGroup();
         }
 
         private static void NomalSearch() {
