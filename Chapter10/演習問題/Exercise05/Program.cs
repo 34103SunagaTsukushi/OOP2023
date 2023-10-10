@@ -19,7 +19,7 @@ namespace Exercise05 {
             foreach(var line in lines) {
                 var replace = Regex.Replace(line, @"<(/?)([A-Z][A-Z0-9]*)(.*?)>",
                     m => {
-                        return string.Format("<{0}{1}{2}>", m.Groups[1].Value, m.Groups[2].Value.ToLower(), m.Groups[3].Value);
+                        return string.Format("<{0} {1} {2}>", m.Groups[1].Value, m.Groups[2].Value.ToLower(), m.Groups[3].Value);
                     });
                 sb.AppendLine(replace);
             }
