@@ -44,7 +44,10 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4() {
-            
+            var groups = Library.Books.OrderByDescending(b => b.PublishedYear).ThenByDescending(p => p.Price);
+            foreach(var book in groups) {
+                Console.WriteLine(book);
+            }
         }
 
         private static void Exercise1_5() {
