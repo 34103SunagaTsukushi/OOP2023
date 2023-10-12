@@ -30,13 +30,17 @@ namespace Exercise01 {
         private static void Exercise1_2() {
             var books = Library.Books.Where(b => b.Price == Library.Books.Max(c => c.Price));
             foreach(var book in books) {
-                Console.WriteLine("タイトル:{0}:{1}円({2}年)",book.Title,book.Price,book.PublishedYear);
+                Console.WriteLine(book);
             }
-            
+            //"タイトル:{0}:{1}円({2}年)",book.Title,book.Price,book.PublishedYear
         }
 
         private static void Exercise1_3() {
-            
+            var groups = Library.Books.GroupBy(b => b.PublishedYear).OrderBy(g => g.Key);
+            foreach(var years in groups) {
+                var yearCount = years.Count();
+                Console.WriteLine("{0}:{1}冊",years.Key,yearCount);
+            }
         }
 
         private static void Exercise1_4() {
