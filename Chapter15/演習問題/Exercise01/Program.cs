@@ -84,13 +84,18 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_7() {
-            var groups = Library.Books.Join(Library.Categories, book => book.CategoryId, category => category.Id,
-                (book, category) => new {
-                    Category = category.Name,
-                    Title = book.Title,
-                    PublishedYear = book.PublishedYear
+            //var groups = Library.Books.Join(Library.Categories, book => book.CategoryId, category => category.Id,
+            //    (book, category) => new {
+            //        Category = category.Name,
+            //        Title = book.Title,
+            //        PublishedYear = book.PublishedYear
 
-                }).Where(c => c.Category == "Development").GroupBy(b => b.PublishedYear).OrderBy(x => x.Key);
+            //    }).Where(c => c.Category == "Development").GroupBy(b => b.PublishedYear).OrderBy(x => x.Key);
+
+            var catid = Library.Categories.Single(c => c.Name == "Development").Id;
+            var groups = Library.Books.Where(b => b.CategoryId == catid).GroupBy(b => b.PublishedYear)
+                .OrderBy(b => b.Key);
+
 
             foreach(var group in groups) {
                 Console.WriteLine("#{0}年", group.Key);
@@ -98,6 +103,10 @@ namespace Exercise01 {
                     Console.WriteLine(" {0}", book.Title);
                 }
             }
+
+            
+
+
         }
 
         private static void Exercise1_8() {
