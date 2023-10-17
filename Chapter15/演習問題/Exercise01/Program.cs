@@ -103,10 +103,6 @@ namespace Exercise01 {
                     Console.WriteLine(" {0}", book.Title);
                 }
             }
-
-            
-
-
         }
 
         private static void Exercise1_8() {
