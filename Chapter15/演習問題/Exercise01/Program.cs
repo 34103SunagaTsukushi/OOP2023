@@ -110,7 +110,16 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_8() {
-            
+            var query = Library.Categories.GroupJoin(
+                Library.Books, c => c.Id, b => b.CategoryId,
+                (c, b) => new {
+                    CategoryName = c.Name,
+                    Count = b.Count()
+                }).Where(x => x.Count >= 4);
+
+            foreach(var category in query) {
+                Console.WriteLine(category.CategoryName);
+            }
         }
     }
 }
