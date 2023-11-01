@@ -30,12 +30,12 @@ namespace RssReader {
             this.wbBrowser = new System.Windows.Forms.WebBrowser();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tbException = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.groupBox1.SuspendLayout();
+            this.gbTitle = new System.Windows.Forms.GroupBox();
+            this.rbEntertainment = new System.Windows.Forms.RadioButton();
+            this.rbIt = new System.Windows.Forms.RadioButton();
+            this.rbSports = new System.Windows.Forms.RadioButton();
+            this.rbEconomy = new System.Windows.Forms.RadioButton();
+            this.gbTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -60,9 +60,9 @@ namespace RssReader {
             // 
             this.lbRssTitle.FormattingEnabled = true;
             this.lbRssTitle.ItemHeight = 12;
-            this.lbRssTitle.Location = new System.Drawing.Point(403, 75);
+            this.lbRssTitle.Location = new System.Drawing.Point(184, 75);
             this.lbRssTitle.Name = "lbRssTitle";
-            this.lbRssTitle.Size = new System.Drawing.Size(454, 136);
+            this.lbRssTitle.Size = new System.Drawing.Size(349, 136);
             this.lbRssTitle.TabIndex = 2;
             this.lbRssTitle.Click += new System.EventHandler(this.lbRssTitle_Click);
             // 
@@ -83,69 +83,69 @@ namespace RssReader {
             this.tbException.Size = new System.Drawing.Size(329, 31);
             this.tbException.TabIndex = 4;
             // 
-            // groupBox1
+            // gbTitle
             // 
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(28, 75);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 136);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.gbTitle.Controls.Add(this.rbEntertainment);
+            this.gbTitle.Controls.Add(this.rbIt);
+            this.gbTitle.Controls.Add(this.rbSports);
+            this.gbTitle.Controls.Add(this.rbEconomy);
+            this.gbTitle.Location = new System.Drawing.Point(28, 75);
+            this.gbTitle.Name = "gbTitle";
+            this.gbTitle.Size = new System.Drawing.Size(120, 136);
+            this.gbTitle.TabIndex = 5;
+            this.gbTitle.TabStop = false;
+            this.gbTitle.Text = "groupBox1";
             // 
-            // radioButton1
+            // rbEntertainment
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(88, 16);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbEntertainment.AutoSize = true;
+            this.rbEntertainment.Location = new System.Drawing.Point(6, 85);
+            this.rbEntertainment.Name = "rbEntertainment";
+            this.rbEntertainment.Size = new System.Drawing.Size(57, 16);
+            this.rbEntertainment.TabIndex = 3;
+            this.rbEntertainment.TabStop = true;
+            this.rbEntertainment.Text = "エンタメ";
+            this.rbEntertainment.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbIt
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(7, 83);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(88, 16);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbIt.AutoSize = true;
+            this.rbIt.Location = new System.Drawing.Point(6, 63);
+            this.rbIt.Name = "rbIt";
+            this.rbIt.Size = new System.Drawing.Size(33, 16);
+            this.rbIt.TabIndex = 2;
+            this.rbIt.TabStop = true;
+            this.rbIt.Text = "IT";
+            this.rbIt.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbSports
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(180, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(88, 16);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbSports.AutoSize = true;
+            this.rbSports.Location = new System.Drawing.Point(6, 41);
+            this.rbSports.Name = "rbSports";
+            this.rbSports.Size = new System.Drawing.Size(61, 16);
+            this.rbSports.TabIndex = 1;
+            this.rbSports.TabStop = true;
+            this.rbSports.Text = "スポーツ";
+            this.rbSports.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbEconomy
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(180, 82);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(88, 16);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "radioButton4";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbEconomy.AutoSize = true;
+            this.rbEconomy.Location = new System.Drawing.Point(7, 19);
+            this.rbEconomy.Name = "rbEconomy";
+            this.rbEconomy.Size = new System.Drawing.Size(47, 16);
+            this.rbEconomy.TabIndex = 0;
+            this.rbEconomy.TabStop = true;
+            this.rbEconomy.Text = "経済";
+            this.rbEconomy.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 708);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbTitle);
             this.Controls.Add(this.tbException);
             this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbRssTitle);
@@ -154,8 +154,8 @@ namespace RssReader {
             this.Name = "Form1";
             this.Text = "Form1";
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbTitle.ResumeLayout(false);
+            this.gbTitle.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,11 +169,11 @@ namespace RssReader {
         private System.Windows.Forms.WebBrowser wbBrowser;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.TextBox tbException;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.GroupBox gbTitle;
+        private System.Windows.Forms.RadioButton rbEntertainment;
+        private System.Windows.Forms.RadioButton rbIt;
+        private System.Windows.Forms.RadioButton rbSports;
+        private System.Windows.Forms.RadioButton rbEconomy;
     }
 }
 
