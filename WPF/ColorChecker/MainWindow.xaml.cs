@@ -40,7 +40,7 @@ namespace ColorChecker {
         private void stockButton_Click(object sender, RoutedEventArgs e) {
             Color brushColor = ((SolidColorBrush)colorArea.Background).Color;
             string colorList = string.Format("R={0}G={1}B={2}", brushColor.R, brushColor.G, brushColor.B);
-            MyColor myColor = (brushColor, colorList);
+            MyColor myColor = new MyColor();//brushColor, colorList
             stockList.Items.Add(myColor);
 
         }

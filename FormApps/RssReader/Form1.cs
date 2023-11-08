@@ -58,6 +58,10 @@ namespace RssReader {
 
 
         private void lbRssTitle_Click(object sender, EventArgs e) {
+            tbFavoriteTitle.Text = lbRssTitle.SelectedItem.ToString();
+            tbFavoriteUrl.Text = ItemDatas[lbRssTitle.SelectedIndex].Link;
+
+
             if(lbRssTitle.Items.Count != 0) {
                 wbBrowser.Navigate(ItemDatas[lbRssTitle.SelectedIndex].Link);
             } else {
@@ -69,5 +73,24 @@ namespace RssReader {
         private void Form1_SizeChanged(object sender, EventArgs e) {
 
         }
+
+
+        private void rbEconomy_CheckedChanged(object sender, EventArgs e) {
+            tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/business.xml";
+        }
+
+        private void rbSports_CheckedChanged(object sender, EventArgs e) {
+            tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/sports.xml";
+        }
+
+        private void rbIt_CheckedChanged(object sender, EventArgs e) {
+            tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/it.xml";
+        }
+
+        private void rbEntertainment_CheckedChanged(object sender, EventArgs e) {
+            tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/entertainment.xml";
+        }
+
+
     }
 }
