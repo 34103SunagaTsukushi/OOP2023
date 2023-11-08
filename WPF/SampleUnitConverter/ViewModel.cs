@@ -15,7 +15,7 @@ namespace SampleUnitConverter {
 
             //if(this.PropertyChanged != null) {
             //    this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            //}
         }
     }
 }
