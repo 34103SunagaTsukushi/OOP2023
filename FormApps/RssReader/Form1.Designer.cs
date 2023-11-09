@@ -40,6 +40,7 @@ namespace RssReader {
             this.tbFavoriteTitle = new System.Windows.Forms.TextBox();
             this.tbFavoriteUrl = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btRegister = new System.Windows.Forms.Button();
             this.gbTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -193,11 +194,23 @@ namespace RssReader {
             this.comboBox1.Size = new System.Drawing.Size(329, 32);
             this.comboBox1.TabIndex = 10;
             // 
+            // btRegister
+            // 
+            this.btRegister.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btRegister.Location = new System.Drawing.Point(621, 160);
+            this.btRegister.Name = "btRegister";
+            this.btRegister.Size = new System.Drawing.Size(105, 32);
+            this.btRegister.TabIndex = 11;
+            this.btRegister.Text = "登録";
+            this.btRegister.UseVisualStyleBackColor = true;
+            this.btRegister.Click += new System.EventHandler(this.btRegister_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1087, 708);
+            this.Controls.Add(this.btRegister);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tbFavoriteUrl);
             this.Controls.Add(this.tbFavoriteTitle);
@@ -237,6 +250,7 @@ namespace RssReader {
         private System.Windows.Forms.TextBox tbFavoriteTitle;
         private System.Windows.Forms.TextBox tbFavoriteUrl;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btRegister;
     }
 }
 

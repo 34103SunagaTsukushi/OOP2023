@@ -91,6 +91,8 @@ namespace RssReader {
             tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/entertainment.xml";
         }
 
+        private void btRegister_Click(object sender, EventArgs e) {
 
+        }
     }
 }
