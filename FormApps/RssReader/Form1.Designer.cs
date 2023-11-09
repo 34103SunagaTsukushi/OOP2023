@@ -39,8 +39,10 @@ namespace RssReader {
             this.label2 = new System.Windows.Forms.Label();
             this.tbFavoriteTitle = new System.Windows.Forms.TextBox();
             this.tbFavoriteUrl = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbRegister = new System.Windows.Forms.ComboBox();
             this.btRegister = new System.Windows.Forms.Button();
+            this.btBefore = new System.Windows.Forms.Button();
+            this.btBack = new System.Windows.Forms.Button();
             this.gbTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,12 +56,14 @@ namespace RssReader {
             // 
             // btGet
             // 
+            this.btGet.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btGet.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btGet.Location = new System.Drawing.Point(612, 21);
             this.btGet.Name = "btGet";
             this.btGet.Size = new System.Drawing.Size(89, 31);
             this.btGet.TabIndex = 1;
             this.btGet.Text = "取得";
-            this.btGet.UseVisualStyleBackColor = true;
+            this.btGet.UseVisualStyleBackColor = false;
             this.btGet.Click += new System.EventHandler(this.btGet_Click);
             // 
             // lbRssTitle
@@ -74,11 +78,11 @@ namespace RssReader {
             // 
             // wbBrowser
             // 
-            this.wbBrowser.Location = new System.Drawing.Point(28, 227);
+            this.wbBrowser.Location = new System.Drawing.Point(28, 263);
             this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrowser.Name = "wbBrowser";
             this.wbBrowser.ScriptErrorsSuppressed = true;
-            this.wbBrowser.Size = new System.Drawing.Size(1033, 385);
+            this.wbBrowser.Size = new System.Drawing.Size(1033, 396);
             this.wbBrowser.TabIndex = 3;
             // 
             // tbException
@@ -152,20 +156,20 @@ namespace RssReader {
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Font = new System.Drawing.Font("HGS創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(641, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 24);
+            this.label1.Size = new System.Drawing.Size(130, 24);
             this.label1.TabIndex = 6;
             this.label1.Text = "タイトル名";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.Location = new System.Drawing.Point(648, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 24);
+            this.label2.Size = new System.Drawing.Size(46, 24);
             this.label2.TabIndex = 7;
             this.label2.Text = "URL";
             // 
@@ -185,33 +189,62 @@ namespace RssReader {
             this.tbFavoriteUrl.Size = new System.Drawing.Size(329, 31);
             this.tbFavoriteUrl.TabIndex = 9;
             // 
-            // comboBox1
+            // cbRegister
             // 
-            this.comboBox1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(732, 160);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(329, 32);
-            this.comboBox1.TabIndex = 10;
+            this.cbRegister.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.cbRegister.FormattingEnabled = true;
+            this.cbRegister.Location = new System.Drawing.Point(732, 160);
+            this.cbRegister.Name = "cbRegister";
+            this.cbRegister.Size = new System.Drawing.Size(329, 32);
+            this.cbRegister.TabIndex = 10;
+            this.cbRegister.SelectedIndexChanged += new System.EventHandler(this.cbRegister_SelectedIndexChanged);
             // 
             // btRegister
             // 
-            this.btRegister.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btRegister.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btRegister.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btRegister.Location = new System.Drawing.Point(621, 160);
             this.btRegister.Name = "btRegister";
             this.btRegister.Size = new System.Drawing.Size(105, 32);
             this.btRegister.TabIndex = 11;
             this.btRegister.Text = "登録";
-            this.btRegister.UseVisualStyleBackColor = true;
+            this.btRegister.UseVisualStyleBackColor = false;
             this.btRegister.Click += new System.EventHandler(this.btRegister_Click);
+            // 
+            // btBefore
+            // 
+            this.btBefore.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btBefore.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btBefore.Location = new System.Drawing.Point(12, 224);
+            this.btBefore.Name = "btBefore";
+            this.btBefore.Size = new System.Drawing.Size(147, 33);
+            this.btBefore.TabIndex = 12;
+            this.btBefore.Text = "前のページ";
+            this.btBefore.UseVisualStyleBackColor = false;
+            this.btBefore.Click += new System.EventHandler(this.btBefore_Click);
+            // 
+            // btBack
+            // 
+            this.btBack.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btBack.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btBack.Location = new System.Drawing.Point(907, 219);
+            this.btBack.Name = "btBack";
+            this.btBack.Size = new System.Drawing.Size(168, 38);
+            this.btBack.TabIndex = 13;
+            this.btBack.Text = "後ろのページ";
+            this.btBack.UseVisualStyleBackColor = false;
+            this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1087, 708);
+            this.Controls.Add(this.btBack);
+            this.Controls.Add(this.btBefore);
             this.Controls.Add(this.btRegister);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbRegister);
             this.Controls.Add(this.tbFavoriteUrl);
             this.Controls.Add(this.tbFavoriteTitle);
             this.Controls.Add(this.label2);
@@ -249,8 +282,10 @@ namespace RssReader {
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbFavoriteTitle;
         private System.Windows.Forms.TextBox tbFavoriteUrl;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbRegister;
         private System.Windows.Forms.Button btRegister;
+        private System.Windows.Forms.Button btBefore;
+        private System.Windows.Forms.Button btBack;
     }
 }
 

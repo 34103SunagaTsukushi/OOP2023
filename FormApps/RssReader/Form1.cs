@@ -19,11 +19,25 @@ namespace RssReader {
         public Form1() {
             InitializeComponent();
         }
+        Dictionary<string, string> FavoriteDict = new Dictionary<string, string>();
 
-        
+        class FavoriteSet {
+            public string Key { get; set; }
+            public string Value { get; set; }
+
+            public FavoriteSet(string key ,string value) {
+                this.Key = key;
+                this.Value = value;
+
+            }
+            public override string ToString() {
+                return Value;
+            }
+        }
+
 
         private void btGet_Click(object sender, EventArgs e) {
-            try {
+            try { 
                 if(tbUrl.Text.Length != 0) {
                     using(var wc = new WebClient()) {
                         var url = wc.OpenRead(tbUrl.Text);
@@ -43,11 +57,12 @@ namespace RssReader {
                             lbRssTitle.Items.Add(node.Title);
                         }
                     }
-
                 } else {
                     //URLが入力されていないのにbtGetがクリックされたときのエラー
                     tbException.Text = "URLが入力されていません。";
                 }
+
+
             } catch(System.Net.WebException ) {
                 //URLが正しくないときのエラー
                 tbException.Text = "正しいURLを入力して下さい。";
@@ -56,11 +71,11 @@ namespace RssReader {
             
         }
 
-
         private void lbRssTitle_Click(object sender, EventArgs e) {
             tbFavoriteTitle.Text = lbRssTitle.SelectedItem.ToString();
             tbFavoriteUrl.Text = ItemDatas[lbRssTitle.SelectedIndex].Link;
 
+            //tbException.Text = ItemDatas[lbRssTitle.SelectedIndex].Link;
 
             if(lbRssTitle.Items.Count != 0) {
                 wbBrowser.Navigate(ItemDatas[lbRssTitle.SelectedIndex].Link);
@@ -73,7 +88,6 @@ namespace RssReader {
         private void Form1_SizeChanged(object sender, EventArgs e) {
 
         }
-
 
         private void rbEconomy_CheckedChanged(object sender, EventArgs e) {
             tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/business.xml";
@@ -93,6 +107,40 @@ namespace RssReader {
 
         private void btRegister_Click(object sender, EventArgs e) {
 
+            if(FavoriteDict.ContainsKey(tbFavoriteUrl.Text) || FavoriteDict.ContainsValue(tbFavoriteTitle.Text)) {
+                tbException.Text = "すでに同じURLかタイトルが登録されています。";
+
+            } else {
+                FavoriteSet favorite = new FavoriteSet(tbFavoriteUrl.Text, tbFavoriteTitle.Text);
+                FavoriteDict.Add(tbFavoriteUrl.Text, tbFavoriteTitle.Text);
+                cbRegister.Items.Add(favorite);
+            }
+        }
+
+        private void cbRegister_SelectedIndexChanged(object sender, EventArgs e) {
+            FavoriteSet favorite = (FavoriteSet)cbRegister.SelectedItem;
+
+            if(favorite.Key.Contains("pickup")) {
+                wbBrowser.Navigate(favorite.Key);
+            } else {
+                tbUrl.Text = favorite.Key.ToString();
+            }
+
+
+            //bool isMatch = Regex.IsMatch(favorite.Key, @"^""https://news.yahoo.co.jp/pickup""\S+$");
+            //if(isMatch) {
+            //    wbBrowser.Navigate(favorite.Key);
+            //} else {
+            //    tbUrl.Text = favorite.Key.ToString();
+            //}
+        }
+
+        private void btBefore_Click(object sender, EventArgs e) {
+            wbBrowser.GoForward();
+        }
+
+        private void btBack_Click(object sender, EventArgs e) {
+            wbBrowser.GoBack();
         }
     }
 }
