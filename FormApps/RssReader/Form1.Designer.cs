@@ -108,9 +108,10 @@ namespace RssReader {
             // rbEntertainment
             // 
             this.rbEntertainment.AutoSize = true;
-            this.rbEntertainment.Location = new System.Drawing.Point(6, 85);
+            this.rbEntertainment.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rbEntertainment.Location = new System.Drawing.Point(7, 93);
             this.rbEntertainment.Name = "rbEntertainment";
-            this.rbEntertainment.Size = new System.Drawing.Size(57, 16);
+            this.rbEntertainment.Size = new System.Drawing.Size(72, 20);
             this.rbEntertainment.TabIndex = 3;
             this.rbEntertainment.TabStop = true;
             this.rbEntertainment.Text = "エンタメ";
@@ -120,9 +121,10 @@ namespace RssReader {
             // rbIt
             // 
             this.rbIt.AutoSize = true;
-            this.rbIt.Location = new System.Drawing.Point(6, 63);
+            this.rbIt.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rbIt.Location = new System.Drawing.Point(7, 71);
             this.rbIt.Name = "rbIt";
-            this.rbIt.Size = new System.Drawing.Size(33, 16);
+            this.rbIt.Size = new System.Drawing.Size(39, 20);
             this.rbIt.TabIndex = 2;
             this.rbIt.TabStop = true;
             this.rbIt.Text = "IT";
@@ -132,9 +134,10 @@ namespace RssReader {
             // rbSports
             // 
             this.rbSports.AutoSize = true;
-            this.rbSports.Location = new System.Drawing.Point(6, 41);
+            this.rbSports.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rbSports.Location = new System.Drawing.Point(7, 45);
             this.rbSports.Name = "rbSports";
-            this.rbSports.Size = new System.Drawing.Size(61, 16);
+            this.rbSports.Size = new System.Drawing.Size(76, 20);
             this.rbSports.TabIndex = 1;
             this.rbSports.TabStop = true;
             this.rbSports.Text = "スポーツ";
@@ -144,9 +147,10 @@ namespace RssReader {
             // rbEconomy
             // 
             this.rbEconomy.AutoSize = true;
+            this.rbEconomy.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rbEconomy.Location = new System.Drawing.Point(7, 19);
             this.rbEconomy.Name = "rbEconomy";
-            this.rbEconomy.Size = new System.Drawing.Size(47, 16);
+            this.rbEconomy.Size = new System.Drawing.Size(58, 20);
             this.rbEconomy.TabIndex = 0;
             this.rbEconomy.TabStop = true;
             this.rbEconomy.Text = "経済";

@@ -44,12 +44,17 @@
             <ComboBox x:Name="colorCombobox" ItemsSource="{Binding}" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Bottom" Height="30" SelectedValue="{Binding Color}" SelectionChanged="ComboBox_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <Border Width="80" Height="Auto" Margin="5,0" BorderThickness="1" BorderBrush="LightGray" >
-                            <Border.Background>
-                                <SolidColorBrush Color="{Binding Color}"/>
-                            </Border.Background>
-                            <TextBlock Text="{Binding Name}"></TextBlock>
-                        </Border>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="80" Height="Auto" Margin="5,0" BorderThickness="1" BorderBrush="Black" >
+                                <Border.Background>
+                                    <SolidColorBrush Color="{Binding Color}"/>
+                                </Border.Background>
+                                
+                            </Border>
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                        
+                        
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
