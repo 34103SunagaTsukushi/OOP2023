@@ -23,6 +23,8 @@ namespace ColorChecker {
             InitializeComponent();
             DataContext = GetColorList();
         }
+        List<MyColor> mColors = new List<MyColor>();
+
         /// <summary>
         /// すべての色を取得するメソッド
         /// </summary>
@@ -31,32 +33,36 @@ namespace ColorChecker {
             return typeof(Colors).GetProperties(BindingFlags.Public | BindingFlags.Static)
                 .Select(i => new MyColor() { Color = (Color)i.GetValue(null), Name = i.Name }).ToArray();
         }
-
+        //スライダーが動いた時のイベント
         private void rgbSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
             Color c = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value);
             colorArea.Background = new SolidColorBrush(c);
+            colorCombobox.SelectedIndex = -1;
         }
-
+        //STOCKボタンが押された時のイベント
         private void stockButton_Click(object sender, RoutedEventArgs e) {
-            Color brushColor = ((SolidColorBrush)colorArea.Background).Color;
-            string colorList = string.Format("R={0}G={1}B={2}", brushColor.R, brushColor.G, brushColor.B);
-            MyColor myColor = new MyColor();//brushColor, colorList
-            stockList.Items.Add(colorList);
+            var colorList = GetColorList();
+            Color brushColor = ((SolidColorBrush)colorArea.Background).Color;//今の色
+            //R=?,G=?,B=?のフォーマット
+            string color = string.Format("R={0},G={1},B={2}", brushColor.R, brushColor.G, brushColor.B);
+            //規定値の設定
+            var defaultColor = colorList.FirstOrDefault(x => x.Color == brushColor)?.Name ?? color;
+            
+            MyColor myColor = new MyColor { Name = defaultColor ,Color = brushColor};//brushColor, colorList
+            mColors.Add(myColor);
+            stockList.Items.Add(myColor.Name);
 
         }
-
-
-        private void setColor() {
-            var r = byte.Parse(rValue.Text);
-            var g = byte.Parse(gValue.Text);
-            var b = byte.Parse(bValue.Text);
-            colorArea.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
-
-
-        }
-
+        //Bindingにて使わなくなったメソッド
+        //private void setColor() {
+        //    var r = byte.Parse(rValue.Text);
+        //    var g = byte.Parse(gValue.Text);
+        //    var b = byte.Parse(bValue.Text);
+        //    colorArea.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
+        //}
+        //comboboxの選択情報が切り替わった時のイベント
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
+            var mycolor = (MyColor)((ComboBox)sender).SelectedItem ;
             var color = mycolor.Color;
             var name = mycolor.Name;
             colorArea.Background = new SolidColorBrush(color);
@@ -64,23 +70,22 @@ namespace ColorChecker {
             gSlider.Value = color.G;
             bSlider.Value = color.B;
         }
-
-        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var data = stockList.Items[stockList.SelectedIndex];
-            //colorArea.Background = new SolidColorBrush((Color)stockList.SelectedItem);
-            //colorArea.Background = new SolidColorBrush((Color)data);
-        }
-
+        //ストックリストで選択した時のイベント
         private void stockList_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
-
+            var selectColor = stockList.SelectedItem;
+            var matchColor = mColors.Find(x => x.Name == selectColor.ToString());
+            rValue.Text = matchColor.Color.R.ToString();
+            gValue.Text = matchColor.Color.G.ToString();
+            bValue.Text = matchColor.Color.B.ToString();
         }
     }
-
     /// <summary>
     /// 色と色名を保持するクラス
     /// </summary>
     public class MyColor {
         public Color Color { get; set; }
         public string Name { get; set; }
+
+
     }
 }
