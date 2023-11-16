@@ -37,7 +37,6 @@ namespace ColorChecker {
         private void rgbSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
             Color c = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value);
             colorArea.Background = new SolidColorBrush(c);
-            colorCombobox.SelectedIndex = -1;
         }
         //STOCKボタンが押された時のイベント
         private void stockButton_Click(object sender, RoutedEventArgs e) {

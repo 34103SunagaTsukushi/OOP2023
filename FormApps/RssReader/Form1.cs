@@ -105,12 +105,16 @@ namespace RssReader {
         //お気に入り登録
         private void btRegister_Click(object sender, EventArgs e) {
             //重複排除
-            if(FavoriteDict.ContainsKey(tbFavoriteUrl.Text) || FavoriteDict.ContainsValue(tbFavoriteTitle.Text)) {
-                tbException.Text = "すでに同じURLかタイトルが登録されています。";
+            if(!tbFavoriteTitle.Text.Equals("") && !tbFavoriteUrl.Text.Equals("")) {
+                if(FavoriteDict.ContainsKey(tbFavoriteUrl.Text) || FavoriteDict.ContainsValue(tbFavoriteTitle.Text)) {
+                    tbException.Text = "すでに同じURLかタイトルが登録されています。";
+                } else {
+                    FavoriteSet favorite = new FavoriteSet(tbFavoriteUrl.Text, tbFavoriteTitle.Text);
+                    FavoriteDict.Add(tbFavoriteUrl.Text, tbFavoriteTitle.Text);
+                    cbRegister.Items.Add(favorite);
+                }
             } else {
-                FavoriteSet favorite = new FavoriteSet(tbFavoriteUrl.Text, tbFavoriteTitle.Text);
-                FavoriteDict.Add(tbFavoriteUrl.Text, tbFavoriteTitle.Text);
-                cbRegister.Items.Add(favorite);
+                tbException.Text = "タイトルかURLが空です。";
             }
         }
         //comboboxの選択が切り替わった時のイベント
@@ -141,19 +145,21 @@ namespace RssReader {
         //お気に入りの削除（選択されているもの）
         private void btDelete_Click(object sender, EventArgs e) {
             try {
+                FavoriteSet favorite = (FavoriteSet)cbRegister.SelectedItem;
+                FavoriteDict.Remove(favorite.Key);
+
                 cbRegister.Items.RemoveAt(cbRegister.SelectedIndex);
                 cbRegister.Text = "";
                 tbFavoriteTitle.Text = "";
                 tbFavoriteUrl.Text = "";
                 wbBrowser.DocumentText = "";
-            } catch(System.ArgumentOutOfRangeException) {
+            } catch(System.ArgumentOutOfRangeException) {//選択項目がないのに削除を押した時のException
                 tbException.Text = "削除項目が選択されていません。";
-            }
-            
-            
+            }    
         }
         //全部リセットするボタン
         private void btAllReset_Click(object sender, EventArgs e) {
+            tbException.Text = "";
             tbUrl.Text = "";
             lbRssTitle.Items.Clear();
             tbFavoriteTitle.Text = "";
