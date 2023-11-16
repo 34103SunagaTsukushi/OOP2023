@@ -41,7 +41,7 @@ namespace ColorChecker {
             Color brushColor = ((SolidColorBrush)colorArea.Background).Color;
             string colorList = string.Format("R={0}G={1}B={2}", brushColor.R, brushColor.G, brushColor.B);
             MyColor myColor = new MyColor();//brushColor, colorList
-            stockList.Items.Add(myColor);
+            stockList.Items.Add(colorList);
 
         }
 
@@ -62,11 +62,17 @@ namespace ColorChecker {
             colorArea.Background = new SolidColorBrush(color);
             rSlider.Value = color.R;
             gSlider.Value = color.G;
-            bSlider.Value = color.B;        
+            bSlider.Value = color.B;
         }
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-             colorArea.Background = new SolidColorBrush((Color)stockList.SelectedItem);
+            var data = stockList.Items[stockList.SelectedIndex];
+            //colorArea.Background = new SolidColorBrush((Color)stockList.SelectedItem);
+            //colorArea.Background = new SolidColorBrush((Color)data);
+        }
+
+        private void stockList_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+
         }
     }
 

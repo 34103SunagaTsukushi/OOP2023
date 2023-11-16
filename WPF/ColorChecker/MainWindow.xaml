@@ -65,7 +65,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Button x:Name="stockButton" Content="STOCK" FontSize="30" Margin="10" Click="stockButton_Click"/>
-            <ListBox x:Name="stockList" Grid.Row="1" Height="180" Margin="10" SelectionChanged="stockList_SelectionChanged" />
+            <ListBox x:Name="stockList" Grid.Row="1" Height="180" Margin="10" MouseDoubleClick="stockList_MouseDoubleClick" />
 
         </Grid>
     </Grid>

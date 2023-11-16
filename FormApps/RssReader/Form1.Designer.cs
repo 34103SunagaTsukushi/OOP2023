@@ -43,6 +43,8 @@ namespace RssReader {
             this.btRegister = new System.Windows.Forms.Button();
             this.btBefore = new System.Windows.Forms.Button();
             this.btBack = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.btAllReset = new System.Windows.Forms.Button();
             this.gbTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@ namespace RssReader {
             this.btGet.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btGet.Location = new System.Drawing.Point(612, 21);
             this.btGet.Name = "btGet";
-            this.btGet.Size = new System.Drawing.Size(89, 31);
+            this.btGet.Size = new System.Drawing.Size(105, 34);
             this.btGet.TabIndex = 1;
             this.btGet.Text = "取得";
             this.btGet.UseVisualStyleBackColor = false;
@@ -68,11 +70,12 @@ namespace RssReader {
             // 
             // lbRssTitle
             // 
+            this.lbRssTitle.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbRssTitle.FormattingEnabled = true;
-            this.lbRssTitle.ItemHeight = 12;
+            this.lbRssTitle.ItemHeight = 16;
             this.lbRssTitle.Location = new System.Drawing.Point(184, 75);
             this.lbRssTitle.Name = "lbRssTitle";
-            this.lbRssTitle.Size = new System.Drawing.Size(422, 136);
+            this.lbRssTitle.Size = new System.Drawing.Size(341, 132);
             this.lbRssTitle.TabIndex = 2;
             this.lbRssTitle.Click += new System.EventHandler(this.lbRssTitle_Click);
             // 
@@ -82,7 +85,7 @@ namespace RssReader {
             this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrowser.Name = "wbBrowser";
             this.wbBrowser.ScriptErrorsSuppressed = true;
-            this.wbBrowser.Size = new System.Drawing.Size(1033, 396);
+            this.wbBrowser.Size = new System.Drawing.Size(1033, 418);
             this.wbBrowser.TabIndex = 3;
             // 
             // tbException
@@ -99,19 +102,21 @@ namespace RssReader {
             this.gbTitle.Controls.Add(this.rbIt);
             this.gbTitle.Controls.Add(this.rbSports);
             this.gbTitle.Controls.Add(this.rbEconomy);
+            this.gbTitle.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.gbTitle.Location = new System.Drawing.Point(28, 75);
             this.gbTitle.Name = "gbTitle";
             this.gbTitle.Size = new System.Drawing.Size(120, 136);
             this.gbTitle.TabIndex = 5;
             this.gbTitle.TabStop = false;
+            this.gbTitle.Text = "ニュース一覧";
             // 
             // rbEntertainment
             // 
             this.rbEntertainment.AutoSize = true;
-            this.rbEntertainment.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rbEntertainment.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rbEntertainment.Location = new System.Drawing.Point(7, 93);
             this.rbEntertainment.Name = "rbEntertainment";
-            this.rbEntertainment.Size = new System.Drawing.Size(72, 20);
+            this.rbEntertainment.Size = new System.Drawing.Size(90, 20);
             this.rbEntertainment.TabIndex = 3;
             this.rbEntertainment.TabStop = true;
             this.rbEntertainment.Text = "エンタメ";
@@ -121,10 +126,10 @@ namespace RssReader {
             // rbIt
             // 
             this.rbIt.AutoSize = true;
-            this.rbIt.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rbIt.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rbIt.Location = new System.Drawing.Point(7, 71);
             this.rbIt.Name = "rbIt";
-            this.rbIt.Size = new System.Drawing.Size(39, 20);
+            this.rbIt.Size = new System.Drawing.Size(42, 20);
             this.rbIt.TabIndex = 2;
             this.rbIt.TabStop = true;
             this.rbIt.Text = "IT";
@@ -134,10 +139,10 @@ namespace RssReader {
             // rbSports
             // 
             this.rbSports.AutoSize = true;
-            this.rbSports.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rbSports.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rbSports.Location = new System.Drawing.Point(7, 45);
             this.rbSports.Name = "rbSports";
-            this.rbSports.Size = new System.Drawing.Size(76, 20);
+            this.rbSports.Size = new System.Drawing.Size(90, 20);
             this.rbSports.TabIndex = 1;
             this.rbSports.TabStop = true;
             this.rbSports.Text = "スポーツ";
@@ -147,7 +152,7 @@ namespace RssReader {
             // rbEconomy
             // 
             this.rbEconomy.AutoSize = true;
-            this.rbEconomy.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rbEconomy.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rbEconomy.Location = new System.Drawing.Point(7, 19);
             this.rbEconomy.Name = "rbEconomy";
             this.rbEconomy.Size = new System.Drawing.Size(58, 20);
@@ -161,7 +166,7 @@ namespace RssReader {
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("HGS創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(641, 75);
+            this.label1.Location = new System.Drawing.Point(543, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 24);
             this.label1.TabIndex = 6;
@@ -171,7 +176,7 @@ namespace RssReader {
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(648, 116);
+            this.label2.Location = new System.Drawing.Point(560, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 24);
             this.label2.TabIndex = 7;
@@ -180,26 +185,26 @@ namespace RssReader {
             // tbFavoriteTitle
             // 
             this.tbFavoriteTitle.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbFavoriteTitle.Location = new System.Drawing.Point(791, 75);
+            this.tbFavoriteTitle.Location = new System.Drawing.Point(693, 72);
             this.tbFavoriteTitle.Name = "tbFavoriteTitle";
-            this.tbFavoriteTitle.Size = new System.Drawing.Size(270, 31);
+            this.tbFavoriteTitle.Size = new System.Drawing.Size(382, 31);
             this.tbFavoriteTitle.TabIndex = 8;
             // 
             // tbFavoriteUrl
             // 
             this.tbFavoriteUrl.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbFavoriteUrl.Location = new System.Drawing.Point(732, 113);
+            this.tbFavoriteUrl.Location = new System.Drawing.Point(621, 112);
             this.tbFavoriteUrl.Name = "tbFavoriteUrl";
-            this.tbFavoriteUrl.Size = new System.Drawing.Size(329, 31);
+            this.tbFavoriteUrl.Size = new System.Drawing.Size(454, 31);
             this.tbFavoriteUrl.TabIndex = 9;
             // 
             // cbRegister
             // 
             this.cbRegister.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cbRegister.FormattingEnabled = true;
-            this.cbRegister.Location = new System.Drawing.Point(732, 160);
+            this.cbRegister.Location = new System.Drawing.Point(674, 160);
             this.cbRegister.Name = "cbRegister";
-            this.cbRegister.Size = new System.Drawing.Size(329, 32);
+            this.cbRegister.Size = new System.Drawing.Size(401, 32);
             this.cbRegister.TabIndex = 10;
             this.cbRegister.SelectedIndexChanged += new System.EventHandler(this.cbRegister_SelectedIndexChanged);
             // 
@@ -207,7 +212,7 @@ namespace RssReader {
             // 
             this.btRegister.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btRegister.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btRegister.Location = new System.Drawing.Point(621, 160);
+            this.btRegister.Location = new System.Drawing.Point(547, 159);
             this.btRegister.Name = "btRegister";
             this.btRegister.Size = new System.Drawing.Size(105, 32);
             this.btRegister.TabIndex = 11;
@@ -219,9 +224,9 @@ namespace RssReader {
             // 
             this.btBefore.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btBefore.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btBefore.Location = new System.Drawing.Point(12, 224);
+            this.btBefore.Location = new System.Drawing.Point(21, 217);
             this.btBefore.Name = "btBefore";
-            this.btBefore.Size = new System.Drawing.Size(147, 33);
+            this.btBefore.Size = new System.Drawing.Size(147, 37);
             this.btBefore.TabIndex = 12;
             this.btBefore.Text = "前のページ";
             this.btBefore.UseVisualStyleBackColor = false;
@@ -239,12 +244,39 @@ namespace RssReader {
             this.btBack.UseVisualStyleBackColor = false;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
+            // btDelete
+            // 
+            this.btDelete.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btDelete.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btDelete.Location = new System.Drawing.Point(547, 197);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(105, 32);
+            this.btDelete.TabIndex = 14;
+            this.btDelete.Text = "削除";
+            this.btDelete.UseVisualStyleBackColor = false;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // btAllReset
+            // 
+            this.btAllReset.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btAllReset.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btAllReset.ForeColor = System.Drawing.Color.Black;
+            this.btAllReset.Location = new System.Drawing.Point(184, 215);
+            this.btAllReset.Name = "btAllReset";
+            this.btAllReset.Size = new System.Drawing.Size(128, 39);
+            this.btAllReset.TabIndex = 15;
+            this.btAllReset.Text = "リセット\r\n";
+            this.btAllReset.UseVisualStyleBackColor = false;
+            this.btAllReset.Click += new System.EventHandler(this.btAllReset_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1087, 708);
+            this.Controls.Add(this.btAllReset);
+            this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btBack);
             this.Controls.Add(this.btBefore);
             this.Controls.Add(this.btRegister);
@@ -261,7 +293,6 @@ namespace RssReader {
             this.Controls.Add(this.tbUrl);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.gbTitle.ResumeLayout(false);
             this.gbTitle.PerformLayout();
             this.ResumeLayout(false);
@@ -290,6 +321,8 @@ namespace RssReader {
         private System.Windows.Forms.Button btRegister;
         private System.Windows.Forms.Button btBefore;
         private System.Windows.Forms.Button btBack;
+        private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.Button btAllReset;
     }
 }
 

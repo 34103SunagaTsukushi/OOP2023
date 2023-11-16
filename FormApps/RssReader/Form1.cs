@@ -35,7 +35,7 @@ namespace RssReader {
             }
         }
 
-
+        //URLからRSSを取得する
         private void btGet_Click(object sender, EventArgs e) {
             try { 
                 if(tbUrl.Text.Length != 0) {
@@ -68,10 +68,11 @@ namespace RssReader {
                 tbException.Text = "正しいURLを入力して下さい。";
                 tbUrl.Text = string.Empty;
             }
-            
         }
 
+        //タイトルがクリックされたときにサイトを表示する
         private void lbRssTitle_Click(object sender, EventArgs e) {
+            //お気に入り登録にも表示
             tbFavoriteTitle.Text = lbRssTitle.SelectedItem.ToString();
             tbFavoriteUrl.Text = ItemDatas[lbRssTitle.SelectedIndex].Link;
 
@@ -85,47 +86,42 @@ namespace RssReader {
             }
         }
 
-        private void Form1_SizeChanged(object sender, EventArgs e) {
-
-        }
-
+        //経済
         private void rbEconomy_CheckedChanged(object sender, EventArgs e) {
             tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/business.xml";
         }
-
+        //スポーツ
         private void rbSports_CheckedChanged(object sender, EventArgs e) {
             tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/sports.xml";
         }
-
+        //IT
         private void rbIt_CheckedChanged(object sender, EventArgs e) {
             tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/it.xml";
         }
-
+        //エンタメ
         private void rbEntertainment_CheckedChanged(object sender, EventArgs e) {
             tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/entertainment.xml";
         }
-
+        //お気に入り登録
         private void btRegister_Click(object sender, EventArgs e) {
-
+            //重複排除
             if(FavoriteDict.ContainsKey(tbFavoriteUrl.Text) || FavoriteDict.ContainsValue(tbFavoriteTitle.Text)) {
                 tbException.Text = "すでに同じURLかタイトルが登録されています。";
-
             } else {
                 FavoriteSet favorite = new FavoriteSet(tbFavoriteUrl.Text, tbFavoriteTitle.Text);
                 FavoriteDict.Add(tbFavoriteUrl.Text, tbFavoriteTitle.Text);
                 cbRegister.Items.Add(favorite);
             }
         }
-
+        //comboboxの選択が切り替わった時のイベント
         private void cbRegister_SelectedIndexChanged(object sender, EventArgs e) {
             FavoriteSet favorite = (FavoriteSet)cbRegister.SelectedItem;
-
+            //URLにpickupが入っていたらサイト表示、入っていなかったらtbURLに表示
             if(favorite.Key.Contains("pickup")) {
                 wbBrowser.Navigate(favorite.Key);
             } else {
                 tbUrl.Text = favorite.Key.ToString();
             }
-
 
             //bool isMatch = Regex.IsMatch(favorite.Key, @"^""https://news.yahoo.co.jp/pickup""\S+$");
             //if(isMatch) {
@@ -134,13 +130,36 @@ namespace RssReader {
             //    tbUrl.Text = favorite.Key.ToString();
             //}
         }
-
+        //前のページへ移動
         private void btBefore_Click(object sender, EventArgs e) {
             wbBrowser.GoForward();
         }
-
+        //後ろのページへ移動
         private void btBack_Click(object sender, EventArgs e) {
             wbBrowser.GoBack();
+        }
+        //お気に入りの削除（選択されているもの）
+        private void btDelete_Click(object sender, EventArgs e) {
+            try {
+                cbRegister.Items.RemoveAt(cbRegister.SelectedIndex);
+                cbRegister.Text = "";
+                tbFavoriteTitle.Text = "";
+                tbFavoriteUrl.Text = "";
+                wbBrowser.DocumentText = "";
+            } catch(System.ArgumentOutOfRangeException) {
+                tbException.Text = "削除項目が選択されていません。";
+            }
+            
+            
+        }
+        //全部リセットするボタン
+        private void btAllReset_Click(object sender, EventArgs e) {
+            tbUrl.Text = "";
+            lbRssTitle.Items.Clear();
+            tbFavoriteTitle.Text = "";
+            tbFavoriteUrl.Text = "";
+            wbBrowser.DocumentText = "";
+            cbRegister.Items.Clear();
         }
     }
 }
