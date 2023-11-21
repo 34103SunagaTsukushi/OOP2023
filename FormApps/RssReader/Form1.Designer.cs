@@ -55,12 +55,13 @@ namespace RssReader {
             this.tbUrl.Name = "tbUrl";
             this.tbUrl.Size = new System.Drawing.Size(578, 31);
             this.tbUrl.TabIndex = 0;
+            this.tbUrl.TextChanged += new System.EventHandler(this.tbUrl_TextChanged);
             // 
             // btGet
             // 
             this.btGet.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btGet.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btGet.Location = new System.Drawing.Point(612, 21);
+            this.btGet.Location = new System.Drawing.Point(612, 19);
             this.btGet.Name = "btGet";
             this.btGet.Size = new System.Drawing.Size(105, 34);
             this.btGet.TabIndex = 1;
@@ -248,7 +249,7 @@ namespace RssReader {
             // 
             this.btDelete.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btDelete.Font = new System.Drawing.Font("HG創英角ﾎﾟｯﾌﾟ体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btDelete.Location = new System.Drawing.Point(547, 197);
+            this.btDelete.Location = new System.Drawing.Point(547, 218);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(105, 32);
             this.btDelete.TabIndex = 14;
@@ -292,7 +293,8 @@ namespace RssReader {
             this.Controls.Add(this.btGet);
             this.Controls.Add(this.tbUrl);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "RssReader";
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.gbTitle.ResumeLayout(false);
             this.gbTitle.PerformLayout();
             this.ResumeLayout(false);

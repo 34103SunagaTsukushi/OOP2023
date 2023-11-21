@@ -41,6 +41,7 @@ namespace RssReader {
                 if(tbUrl.Text.Length != 0) {
                     using(var wc = new WebClient()) {
                         var url = wc.OpenRead(tbUrl.Text);
+                        //wc.DownloadString();
                         XDocument xdoc = XDocument.Load(url);
 
                         //btGetがクリックされたときに初期化する
@@ -146,16 +147,21 @@ namespace RssReader {
         private void btDelete_Click(object sender, EventArgs e) {
             try {
                 FavoriteSet favorite = (FavoriteSet)cbRegister.SelectedItem;
-                FavoriteDict.Remove(favorite.Key);
+                if(favorite != null) {
+                    FavoriteDict.Remove(favorite.Key);
 
-                cbRegister.Items.RemoveAt(cbRegister.SelectedIndex);
-                cbRegister.Text = "";
-                tbFavoriteTitle.Text = "";
-                tbFavoriteUrl.Text = "";
-                wbBrowser.DocumentText = "";
+                    cbRegister.Items.RemoveAt(cbRegister.SelectedIndex);
+                    cbRegister.Text = "";
+                    tbFavoriteTitle.Text = "";
+                    tbFavoriteUrl.Text = "";
+                    wbBrowser.DocumentText = "";
+                } else {
+                    tbException.Text = "削除項目がありません。";
+                }
+                
             } catch(System.ArgumentOutOfRangeException) {//選択項目がないのに削除を押した時のException
                 tbException.Text = "削除項目が選択されていません。";
-            }    
+            }
         }
         //全部リセットするボタン
         private void btAllReset_Click(object sender, EventArgs e) {
@@ -166,6 +172,13 @@ namespace RssReader {
             tbFavoriteUrl.Text = "";
             wbBrowser.DocumentText = "";
             cbRegister.Items.Clear();
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e) {
+            this.MaximizedBounds = new Rectangle(0, 0,800,800);
+        }
+        private void tbUrl_TextChanged(object sender, EventArgs e) {
+            tbFavoriteUrl.Text = tbUrl.Text;
         }
     }
 }
